@@ -1,0 +1,23 @@
+<section>
+    <article>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Projectos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group col-md-4" ng-repeat='project in projects'>
+                    <span href="#" class="list-group-item active">
+                    	{{project.name}}
+                    	<span class="badge">
+                    		<a ui-sref="projectForm({ projectID : project.id })">Editar</a>
+                    	</span>
+                	</span>
+                    <div class="list-group-content">
+	                    <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
+	                    <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

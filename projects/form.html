@@ -1,0 +1,57 @@
+<section>
+    <article class='col-md-6'>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input class="form-control" ng-model='project.name' placeholder="Nombre clave del proyecto">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Denominacion Comercial</label>
+                <div class="col-sm-9">
+                    <select class="form-control" ng-model='project.de_com'>
+					  <option value="" disabled>Selecione</option>
+					  <option>STO</option>
+					  <option>COD</option>
+					  <option>Tesla</option>
+					</select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >Fecha Inicio</label>
+                <div class="col-sm-9">
+                    <input class='form-control' type="date" ng-model='project.start_date'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Finalizacion</label>
+                <div class="col-sm-9">
+                    <input class='form-control' type="date" ng-model='project.end_date'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Estado</label>
+                <div class="col-sm-9">
+                    <div class="radio">
+                        <label>
+				    <input type="radio" name="status" ng-model="project.status" value="1">Activo
+				  </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+				    <input type="radio" name="status"  ng-model="project.status" value="0">Inactivo
+				  </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" ng-click='saveProject()'>Registrar Proyecto</button>
+                </div>
+            </div>
+        </form>
+    </article>
+</section>
