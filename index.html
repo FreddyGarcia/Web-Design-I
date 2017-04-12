@@ -48,16 +48,7 @@
 		            </form>
 		            <ul class="nav navbar-nav navbar-right">
 		                <li><a href="#">Link</a></li>
-		                <li class="dropdown">
-		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-		                    <ul class="dropdown-menu">
-		                        <li><a href="#">Action</a></li>
-		                        <li><a href="#">Another action</a></li>
-		                        <li><a href="#">Something else here</a></li>
-		                        <li role="separator" class="divider"></li>
-		                        <li><a href="#">Separated link</a></li>
-		                    </ul>
-		                </li>
+
 		            </ul>
 		        </div>
 		        <!-- /.navbar-collapse -->
@@ -67,7 +58,7 @@
 
 		<ol class="breadcrumb">
 		  <li><a href="#">Home</a></li>
-		  <li><a href="#" ng-cloak>{{state_name}}</a></li>
+		  <li ng-repeat='s in current_state'><a href="#"  ng-cloak>{{s}}</a></li>
 		</ol>
 
 		<section class="col-md-10">

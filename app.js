@@ -2,7 +2,7 @@ angular.module('MyApp', ['ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/projects');
 
 	$stateProvider.state('home', {
 		url: '/home',
@@ -10,23 +10,27 @@ angular.module('MyApp', ['ui.router'])
 	});
 
 	$stateProvider.state('employees', {
+		alias : ['Empleados'],
 		url: '/employees',
 		templateUrl: 'employees/index.html',
 		controller : 'EmployeesController'
 	});
 	$stateProvider.state('projects', {
+		alias : ['Proyectos'],
 		url: '/projects',
 		templateUrl: 'projects/index.html',
 		controller : 'ProjectosController'
 	});
 
 	$stateProvider.state('projectDetail', {
+		alias : ['Proyectos', 'Detalles'],
 		url: '/projects/:projectID/details',
 		templateUrl: 'projects/detail.html',
 		controller : 'ProjectDetailController'
 	});
 
 	$stateProvider.state('projectForm', {
+		alias : ['Proyectos', 'Formulario'],
 		url: '/projects/:projectID',
 		templateUrl: 'projects/form.html',
 		controller : 'ProjectFormController'
@@ -64,6 +68,12 @@ angular.module('MyApp', ['ui.router'])
 				{ name : 'Levantamiento' },
 				{ name : 'test' }
 			]
+		},
+		{
+			id  : 4,
+			name : 'Projecto 3',
+			comercialDen : 'KO',
+			status : '1'
 		}
 	];
 
@@ -94,7 +104,7 @@ angular.module('MyApp', ['ui.router'])
 
 .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-    	$rootScope.state_name = toState.name;
+    	$rootScope.current_state = toState.alias;
     });
 })
 
@@ -113,10 +123,12 @@ angular.module('MyApp', ['ui.router'])
 	$scope.project = MyFactory.getProjectById(projectID);
 })
 
-.controller('ProjectFormController', function ($scope, $stateParams, MyFactory) {
+.controller('ProjectFormController', function ($scope, $stateParams, MyService, MyFactory) {
 	$scope.project = {};
+
 	$scope.saveProject = function () {
-		console.log($scope.project);
+		MyService.projects.push($scope.project);
+		$scope.project = {};
 	}
 })
 

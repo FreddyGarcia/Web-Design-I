@@ -34,7 +34,7 @@
 
 .list-group-content {
     overflow-y: scroll;
-    height: 124px;
+    max-height: 124px;
 }
 
 

@@ -12,9 +12,12 @@
                     		<a ui-sref="projectForm({ projectID : project.id })">Editar</a>
                     	</span>
                 	</span>
-                    <div class="list-group-content">
-	                    <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
-	                    <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
+                    <div class="list-group-content" ng-show='project.tasks'>
+                        <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
+                        <a href="" class="list-group-item" ng-repeat='task in project.tasks'>{{task.name}}</a>
+                    </div>
+                    <div class="list-group-content" ng-show='!project.tasks'>
+	                    <a href="" class="list-group-item">Sin Tareas</a>
                     </div>
                 </div>
             </div>
